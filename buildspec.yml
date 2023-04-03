@@ -16,8 +16,8 @@ phases:
   post_build:
     commands:
       - echo Pushing frontend Docker image to Amazon ECR...
-      - docker tag stock-frontend-docker-image:latest $ECR_REPOSITORY_URI/stock-frontend-docker-image:latest
-      - docker push $ECR_REPOSITORY_URI/stock-frontend-docker-image:latest
+      - docker tag stock-frontend-docker-image:latest 878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-repository/stock-frontend-docker-image:latest
+      - docker push 878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-repository/stock-frontend-docker-image:latest
       - echo Pushing backend Docker image to Amazon ECR...
-      - docker tag stock-backend-docker-image:latest $ECR_REPOSITORY_URI/stock-backend-docker-image:latest
-      - docker push $ECR_REPOSITORY_URI/stock-backend-docker-image:latest
+      - docker tag stock-backend-docker-image:latest 878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-repository/stock-backend-docker-image:latest
+      - docker push 878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-repository/stock-backend-docker-image:latest
