@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install production dependencies
 RUN npm ci --only=production
 
+# Install TypeScript globally
+RUN npm install -g typescript
+
 # Copy the rest of the source code to the working directory
 COPY . .
 
