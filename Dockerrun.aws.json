@@ -27,7 +27,13 @@
             ],
             "build": {
                 "dockerfile": "apple-stock/Dockerfile"
-            }
+            },
+            "environment": [
+                {
+                    "name": "REACT_APP_SERVER_URL",
+                    "value": "http://stockpriceapp-env.eba-5ps7asta.eu-north-1.elasticbeanstalk.com:8080"
+                }
+            ]
         }
     ]
 }
