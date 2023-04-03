@@ -3,6 +3,7 @@
     "containerDefinitions": [
         {
             "name": "backend",
+            "image": "your-ecr-repository-uri/stock-backend-docker-image:latest",
             "essential": true,
             "memory": 256,
             "portMappings": [
@@ -10,13 +11,11 @@
                     "hostPort": 8080,
                     "containerPort": 8080
                 }
-            ],
-            "build": {
-                "dockerfile": "apple-stock-backend/Dockerfile"
-            }
+            ]
         },
         {
             "name": "frontend",
+            "image": "your-ecr-repository-uri/stock-frontend-docker-image:latest",
             "essential": true,
             "memory": 256,
             "portMappings": [
@@ -25,9 +24,6 @@
                     "containerPort": 80
                 }
             ],
-            "build": {
-                "dockerfile": "apple-stock/Dockerfile"
-            },
             "environment": [
                 {
                     "name": "REACT_APP_SERVER_URL",

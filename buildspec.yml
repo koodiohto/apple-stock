@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+  build:
+    commands:
+      - echo Building frontend Docker image...
+      - docker build --build-arg REACT_APP_SERVER_URL=http://stockpriceapp-env.eba-5ps7asta.eu-north-1.elasticbeanstalk.com:8080 -t stock-frontend-docker-image ./apple-stock
+      - echo Building backend Docker image...
+      - docker build -t stock-backend-docker-image ./apple-stock-backend
+  post_build:
+    commands:
+      - echo Pushing frontend Docker image to Amazon ECR...
+      - docker tag stock-frontend-docker-image $ECR_REPOSITORY_URI/stock-frontend-docker-image
+      - docker push $ECR_REPOSITORY_URI/stock-frontend-docker-image
+      - echo Pushing backend Docker image to Amazon ECR...
+      - docker tag stock-backend-docker-image $ECR_REPOSITORY_URI/stock-backend-docker-image
+      - docker push $ECR_REPOSITORY_URI/stock-backend-docker-image
