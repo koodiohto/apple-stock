@@ -1,0 +1,19 @@
+# Node.js and TypeScript
+node_modules/
+dist/
+*.log
+*.env
+*.tsbuildinfo
+
+# VS Code
+.vscode/
+.settings/
+*.code-workspace
+*.launch.json
+*.vsix
+*.vsixmanifest
+*.sln.code-workspace
+
+# Other
+.DS_Store
+Thumbs.db

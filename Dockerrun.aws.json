@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "backend",
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "containerPort": 8080
+                }
+            ],
+            "build": {
+                "dockerfile": "apple-stock-backend/Dockerfile"
+            }
+        },
+        {
+            "name": "frontend",
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "build": {
+                "dockerfile": "apple-stock/Dockerfile"
+            }
+        }
+    ]
+}
