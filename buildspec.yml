@@ -3,7 +3,7 @@ version: 0.2
 artifacts:
   files:
     - '**/*'
-    
+
 phases:
   pre_build:
     commands:
@@ -12,8 +12,9 @@ phases:
       - ECR_LOGIN_PASSWORD=$(aws ecr get-login-password --region $AWS_DEFAULT_REGION)
       - docker login --username AWS --password $ECR_LOGIN_PASSWORD $ECR_REPOSITORY_URI
 
-  test:
+  build:
     commands:
+      - Running tests...
       - echo Installing frontend dependencies...
       - cd apple-stock && npm ci
       - echo Installing backend dependencies...
@@ -22,9 +23,6 @@ phases:
       - cd ../apple-stock && npm run test
       - echo Running backend tests...
       - cd ../apple-stock-backend && npm run test
-
-  build:
-    commands:
       - echo Building frontend Docker image...
       - docker build --build-arg REACT_APP_SERVER_URL=http://Stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com:8080 -t stock-frontend-docker-image ./apple-stock
       - echo Building backend Docker image...
