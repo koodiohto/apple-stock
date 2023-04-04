@@ -10,7 +10,7 @@ services:
       - NODE_ENV=production
 
   frontend:
-    build: ./apple-stock
+    build: ./apple-stock-frontend
     container_name: stock-frontend-docker-image
     ports:
       - '80:80'

@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - echo Building frontend Docker image...
-      - docker build --build-arg REACT_APP_SERVER_URL=http://Stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com:8080 -t stock-frontend-docker-image ./apple-stock
+      - docker build --build-arg REACT_APP_SERVER_URL=http://Stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com:8080 -t stock-frontend-docker-image ./apple-stock-frontend
       - echo Building backend Docker image...
       - docker build -t stock-backend-docker-image ./apple-stock-backend
 
