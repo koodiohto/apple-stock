@@ -16,7 +16,7 @@ interface Props {
   ticker: string
 }
 
-const serverUrl = process.env.REACT_APP_SERVER_URL || "http://localhost:8080"
+const serverUrl = process.env.REACT_APP_SERVER_URL || "http://stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com:8080" //"http://localhost:8080"
 
 const getDateMonthsAgo = (monthsAgo: number): string => {
   const date = new Date()
