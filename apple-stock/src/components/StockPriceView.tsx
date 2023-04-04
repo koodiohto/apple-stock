@@ -16,7 +16,7 @@ interface Props {
   ticker: string
 }
 
-const serverUrl = process.env.REACT_APP_SERVER_URL
+const serverUrl = process.env.REACT_APP_SERVER_URL || "http://localhost:8080"
 
 const getDateMonthsAgo = (monthsAgo: number): string => {
   const date = new Date()
