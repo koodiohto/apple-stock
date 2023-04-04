@@ -4,6 +4,10 @@ FROM node:16
 # Set the working directory
 WORKDIR /app
 
+# Define a build argument for the server URL
+ARG STOCK_API_KEY
+ENV STOCK_API_KEY=$STOCK_API_KEY
+
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 

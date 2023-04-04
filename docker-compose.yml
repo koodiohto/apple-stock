@@ -6,11 +6,14 @@ services:
     container_name: stock-backend-docker-image
     ports:
       - '8080:8080'
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
+
 
   frontend:
     build: ./apple-stock-frontend
     container_name: stock-frontend-docker-image
     ports:
       - '80:80'
+    env_file:
+      - .env
