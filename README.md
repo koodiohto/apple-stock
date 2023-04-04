@@ -14,6 +14,6 @@ You should be able to start the application locally by running:
 
 `docker compose up`
 
-Though it needs the Alhavantage api-key defined in apple-stock-backend .env-file with STOCK_API_KEY
+Though it needs the Alhavantage api-key defined in apple-stock-backend .env-file with ALPHA_API_KEY (or with STOCK_API_KEY for running locally)
 
 Then you should see the application with your browser in 'http://localhost'
