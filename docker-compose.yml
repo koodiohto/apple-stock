@@ -7,7 +7,7 @@ services:
     ports:
       - '8080:8080'
     env_file:
-      - .env
+      - ./apple-stock-backend/.env
 
 
   frontend:
@@ -16,4 +16,4 @@ services:
     ports:
       - '80:80'
     env_file:
-      - .env
+      - ./apple-stock-frontend/.env
