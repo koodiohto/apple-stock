@@ -8,3 +8,10 @@ The application is deployed to AWS-cloud with [Elastic Beanstalk](https://aws.am
 
 The application [runs here](http://stockpriceapp-env.eba-5ps7asta.eu-north-1.elasticbeanstalk.com/).
 
+# Running the application locally
+
+You should be able to start the application locally by running:
+
+`docker compose up`
+
+Then you should see the application with your browser in 'http://localhost'
