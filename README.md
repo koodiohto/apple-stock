@@ -6,7 +6,7 @@ The application has a [React Frontend](./apple-stock/) that queries the backend 
 
 The application is deployed to AWS-cloud with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) and [CodeBuild pipeline](https://aws.amazon.com/codebuild/).
 
-The application [runs here](http://stockpriceapp-env.eba-5ps7asta.eu-north-1.elasticbeanstalk.com/).
+The application [runs here](http://Stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com).
 
 # Running the application locally
 
