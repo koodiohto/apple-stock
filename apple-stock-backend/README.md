@@ -15,6 +15,8 @@ Returns the historical stock prices for a given stock ticker and starting date. 
 -   `ticker` (required): The stock ticker symbol.
 -   `startingFrom` (required): The starting date from which to retrieve the historical stock prices. The date format should be `yyyy-mm-dd`.
 
+e.g. `http://localhost:8080/stockPrice?ticker=AAPL&startingFrom=2023-03-01`
+
 #### Response
 
 If successful, the API returns a JSON object with the following properties:
@@ -27,3 +29,16 @@ If successful, the API returns a JSON object with the following properties:
 
 If the API fails to retrieve the historical stock prices for any reason, it returns a 404 or 500 status code with an error message in the response body.
 
+## Running the project
+
+First install the dependencies:
+
+`npm install`
+
+and then run
+
+`npm run dev`
+Runs the app in the development mode. It responds in http://localhost:8080 by default.
+
+`npm run test`
+Runs the jest tests

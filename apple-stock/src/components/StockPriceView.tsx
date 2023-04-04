@@ -42,10 +42,10 @@ const StockPriceView: React.FC<Props> = ({ ticker }: Props) => {
           const data = await response.json()
           setStockPriceData(data)
         } else {
-          setError('Failed to fetch data')
+          setError('Failed to fetch data: ' + JSON.stringify(response))
         }
       } catch (error) {
-        setError('Failed to fetch data')
+        setError('Failed to fetch data: ' + JSON.stringify(error))
       } finally {
         setLoading(false)
       }
@@ -84,6 +84,7 @@ const StockPriceView: React.FC<Props> = ({ ticker }: Props) => {
 
   return (
     <Box sx={{ bgcolor: '#00000', padding: 2 }}>
+      serverURL: {serverUrl}
       {error && <Typography color="error">{error}</Typography>}
       {(loading) && (
         <>
