@@ -16,7 +16,7 @@ interface Props {
   ticker: string
 }
 
-const serverUrl = process.env.REACT_APP_SERVER_URL || "http://stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com:8080" //"http://localhost:8080"
+const serverUrl = process.env.REACT_APP_SERVER_URL || "http://localhost:8080"
 
 const getDateMonthsAgo = (monthsAgo: number): string => {
   const date = new Date()
@@ -42,10 +42,10 @@ const StockPriceView: React.FC<Props> = ({ ticker }: Props) => {
           const data = await response.json()
           setStockPriceData(data)
         } else {
-          setError('Failed to fetch data: ' + JSON.stringify(response))
+          setError('Failed to fetch data')
         }
       } catch (error) {
-        setError('Failed to fetch data: ' + JSON.stringify(error))
+        setError('Failed to fetch data')
       } finally {
         setLoading(false)
       }
@@ -84,7 +84,6 @@ const StockPriceView: React.FC<Props> = ({ ticker }: Props) => {
 
   return (
     <Box sx={{ bgcolor: '#00000', padding: 2 }}>
-      serverURL: {serverUrl}
       {error && <Typography color="error">{error}</Typography>}
       {(loading) && (
         <>

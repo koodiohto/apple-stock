@@ -4,6 +4,10 @@ FROM node:16 AS build
 # Set the working directory
 WORKDIR /app
 
+# Define a build argument for the server URL
+ARG REACT_APP_SERVER_URL
+ENV REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL
+
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
