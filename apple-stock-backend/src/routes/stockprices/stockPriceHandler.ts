@@ -35,7 +35,7 @@ export interface TypedJsonResponse<T> extends Express.Response {
     status(arg0: number): { send: (arg: string) => any }
 }
 
-const stockDataApiKey = process.env.STOCK_API_KEY
+const stockDataApiKey = process.env.STOCK_API_KEY || '3SR7YS6XKLIPPSUK' //TODO: should parametrizise this as env variable
 
 // Add a cache object to store historical stock data
 const stockDataCache: { [ticker: string]: StockPriceRawData } = {}
