@@ -1,6 +1,6 @@
 # About
 
-This is a React frontend for displaying apple stock prices. It fetches the prices from the [backend](../apple-stock-backend/)
+This is a React frontend for displaying apple stock prices. It fetches the prices from the [backend](../apple-stock-backend/).
 
 ![Screenshot of the application](./img/stock-app.png)
 ## Running the project
