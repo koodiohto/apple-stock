@@ -31,8 +31,6 @@ const StockPriceView: React.FC<Props> = ({ ticker }: Props) => {
   const [startingFrom, setStartingFrom] = useState<string>(getDateMonthsAgo(1))
 
   useEffect(() => {
-    if (startingFrom === '') return
-
     const fetchData = async () => {
       setLoading(true)
       setError(null)
