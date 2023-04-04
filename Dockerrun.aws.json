@@ -1,0 +1,35 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "backend",
+            "image": "878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-backend-docker-image:latest",
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "containerPort": 8080
+                }
+            ]
+        },
+        {
+            "name": "frontend",
+            "image": "878750742588.dkr.ecr.eu-north-1.amazonaws.com/stock-frontend-docker-image:latest",
+            "essential": true,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "environment": [
+                {
+                    "name": "REACT_APP_SERVER_URL",
+                    "value": "http://stockpriceapp-env.eba-5ps7asta.eu-north-1.elasticbeanstalk.com:8080"
+                }
+            ]
+        }
+    ]
+}
