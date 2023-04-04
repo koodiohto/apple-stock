@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion": 3,
+    "AWSEBComposeVersion": "3.8",
     "containerDefinitions": [
         {
             "name": "backend",
