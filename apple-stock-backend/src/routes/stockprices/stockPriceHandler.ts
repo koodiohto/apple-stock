@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { path, pipe, map, filter } from 'ramda'
+import SimpleCache from '../../utils/cache'
 
 interface StockPriceRawData {
     [date: string]: {
@@ -38,7 +39,7 @@ export interface TypedJsonResponse<T> extends Express.Response {
 const stockDataApiKey = process.env.STOCK_API_KEY
 
 // Add a cache object to store historical stock data
-const stockDataCache: { [ticker: string]: StockPriceRawData } = {}
+const stockDataCache = new SimpleCache<StockPriceRawData>({ duration: 3600000 }); // 1 hour cache duration
 
 export const handleGetStockPrice = async (req: { query: StockQueryType }, res: TypedJsonResponse<StockResponse>): Promise<void> => {
     const ticker = req.query.ticker as string
@@ -96,15 +97,17 @@ const parseTimeSeriesData = (data: StockPriceRawData, startingFrom: string): Sto
 }
 
 const getStockPriceData = async (ticker: string): Promise<StockPriceRawData | null> => {
-    if (stockDataCache[ticker]) {
-        return stockDataCache[ticker]
+    const cachedData = stockDataCache.get(ticker)
+
+    if (cachedData) {
+        return cachedData
     } else {
         //TODO: Could zod-decode the response object to check that data format matches
         const data = await fetchDataFromAlphaVantage(ticker, 'TIME_SERIES_DAILY_ADJUSTED')
         const timeSeriesData = path<StockPriceRawData>(['Time Series (Daily)'], data)
 
         if (timeSeriesData) {
-            stockDataCache[ticker] = timeSeriesData
+            stockDataCache.put(ticker, timeSeriesData)
             return timeSeriesData
         }
     }
