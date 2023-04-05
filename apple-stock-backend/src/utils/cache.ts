@@ -23,7 +23,7 @@ interface CacheEntry<T> {
     public get(key: string): T | null {
       const entry = this.cache[key];
   
-      if (entry && Date.now() - entry.timestamp < this.duration) {
+      if (entry && new Date().getTime() - entry.timestamp < this.duration) {
         return entry.data;
       }
   
@@ -31,7 +31,7 @@ interface CacheEntry<T> {
     }
   
     public put(key: string, data: T): void {
-      this.cache[key] = { data, timestamp: Date.now() };
+      this.cache[key] = { data, timestamp: new Date().getTime() };
     }
   
     public delete(key: string): void {
