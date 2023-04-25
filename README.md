@@ -1,12 +1,10 @@
 # About
 
-This is an application for displaying Apple stock price. The [backend](./apple-stock-backend/) of the application fetches the stock price from a [third party API](https://www.alphavantage.co/documentation/).
+This is an example AWS-deployable web-application. Its' actual functionality is to display Apple stock price. The [backend](./apple-stock-backend/) of the application fetches the stock price from a [third party API](https://www.alphavantage.co/documentation/).
 
 The application has a [React Frontend](./apple-stock-frontend/) that queries the backend for the stock price data.
 
-The application is deployed to AWS-cloud with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) and [CodeBuild pipeline](https://aws.amazon.com/codebuild/).
-
-The application [runs here](http://Stockapplication2-env.eba-e3xj3spz.eu-north-1.elasticbeanstalk.com).
+The application can be deployed to AWS-cloud with [Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) and [CodeBuild pipeline](https://aws.amazon.com/codebuild/).
 
 # Running the application locally
 
